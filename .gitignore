@@ -10,12 +10,14 @@
 /build
 /CMakeFiles
 *.sln
+*.vscode
 *.xcodeproj
 *.pyc
 *.udd
 *.dat
 *.target.xml
 /.kdev4
+/.vscode
 /cmake-build-debug
 cmake_install.cmake
 Makefile
