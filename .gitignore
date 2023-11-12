@@ -21,6 +21,7 @@ cmake_install.cmake
 Makefile
 CMakeCache.txt
 /src/Makefile
+/src/CMakeFiles
 /src/cmake_install.cmake
 
 #Ignore Intermediate folders
