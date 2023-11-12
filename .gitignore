@@ -1,5 +1,30 @@
+#Ignore personal workspace vars
+.idea
+
+
+
+#Ignore Unix backups files
+*~
+
+#Exceptions
 /build
 /CMakeFiles
+*.sln
+*.xcodeproj
+*.pyc
+*.udd
+*.dat
+*.target.xml
+/.kdev4
+/cmake-build-debug
 cmake_install.cmake
 Makefile
 CMakeCache.txt
+/src/Makefile
+/src/cmake_install.cmake
+
+#Ignore Intermediate folders
+/obj
+/Intermediate
+
+#Ignore any saved local files
