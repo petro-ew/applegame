@@ -17,6 +17,9 @@ struct Game
 	bool isGameFinished = false;
 	float timeSinceGameFinish = 0.f;
 	sf::RectangleShape background;
+	// Resources
+	sf::Texture playerTexture;
+	
 };
 
 void RestartGame(Game& game);

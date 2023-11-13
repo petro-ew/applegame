@@ -9,7 +9,6 @@
 #Exceptions
 /build
 /CMakeFiles
-*.json
 *.sln
 *.vscode
 *.xcodeproj

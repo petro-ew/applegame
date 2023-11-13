@@ -17,6 +17,9 @@ struct Player
 	float speed = INITIAL_SPEED;
 	PlayerDirection direction = PlayerDirection::Right;
 	sf::RectangleShape shape;
+	
+	
+
 };
 
 void InitPlayer(Player& player);
