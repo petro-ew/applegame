@@ -16,13 +16,15 @@ else
 echo -e "${BGRED}${BLACK} $bin_name don't exists!${NORMAL}"
 fi 
 #build new version
-cd ~/source/applegame/build/ &&  cmake --build .
+cd $HOME/source/applegame/build/
+cmake --build .
 if test -f $HOME/source/applegame/build/bin/applegame
 then
 echo -e "${GREEN} $FILE exists.${NORMAL}"
 cp -f $HOME/source/applegame/build/bin/applegame $HOME/source/applegame/bin/latest/
 # execute build version
-$HOME/source/applegame/build/bin/applegame
+cd $HOME/source/applegame/build/bin/ 
+./applegame
 else
 echo -e "${BGRED}${BLACK}Programs not compiling!!! $FILE NOT exists!!!${NORMAL}"
 fi

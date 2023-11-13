@@ -1,16 +1,17 @@
 ﻿// ©2023, XYZ School. All rights reserved.
 // Authored by Aleksandr Rybalka (polterageist@gmail.com)
+//gcc -c -std=c++20 -fmodules-ts  *.cpp
+//g++ *.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system      
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Constants.h"
 #include "Game.h"
-//gcc -c -std=c++20 -fmodules-ts  *.cpp
-
-//g++ *.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system       
+#include <string>
 
 int main()
 {
+	using namespace ApplesGame;
 	int seed = (int)time(nullptr);
 	srand(seed);
 	// Init window
@@ -62,3 +63,4 @@ int main()
 
 	return 0;
 }
+

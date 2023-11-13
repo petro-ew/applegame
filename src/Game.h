@@ -6,24 +6,27 @@
 #include "Apple.h"
 #include "Rock.h"
 
-struct Game
+namespace ApplesGame
 {
-	Player player;
-	Apple apples[NUM_APPLES];
-	Rock rocks[NUM_ROCKS];
+	struct Game
+	{
+		Player player;
+		Apple apples[NUM_APPLES];
+		Rock rocks[NUM_ROCKS];
 
-	// Global game data
-	int numEatenApples = 0;
-	bool isGameFinished = false;
-	float timeSinceGameFinish = 0.f;
-	sf::RectangleShape background;
-	// Resources
-	sf::Texture playerTexture;
+		// Global game data
+		int numEatenApples = 0;
+		bool isGameFinished = false;
+		float timeSinceGameFinish = 0.f;
+		sf::RectangleShape background;
+		// Resources
+		sf::Texture playerTexture;
 	
-};
+	};
 
-void RestartGame(Game& game);
-void InitGame(Game& game);
-void UpdateGame(Game& game, float deltaTime);
-void DrawGame(Game& game, sf::RenderWindow& window);
-void DeinializeGame(Game& game);
+	void RestartGame(Game& game);
+	void InitGame(Game& game);
+	void UpdateGame(Game& game, float deltaTime);
+	void DrawGame(Game& game, sf::RenderWindow& window);
+	void DeinializeGame(Game& game);
+}
