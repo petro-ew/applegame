@@ -1,6 +1,7 @@
 #include "Math.h"
 #include <cstdlib>
 #include <cmath>
+#include <SFML/Graphics.hpp>
 //gcc -c -std=c++20 -fmodules-ts  *.cpp
 //g++ *.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
 
@@ -31,4 +32,17 @@ namespace ApplesGame
 		float squareRadiusSum = (circle1Radius + circle2Radius) * (circle1Radius + circle2Radius);
 		return squareDistance <= squareRadiusSum;
 	}
+    void SetSpriteSize(sf::Sprite& sprite, float desiredWidth, float desireHeight)
+    {
+        sf::FloatRect spriteRect = sprite.getLocalBounds();
+        sf::Vector2f scale = {desiredWidth / spriteRect.width, desireHeight / spriteRect.height};
+        sprite.setScale(scale);
+    }
+
+    void SetSpriteRelativeOrigin(sf::Sprite& sprite, float originX, float originY)
+    {
+        sf::FloatRect spriteRect = sprite.getLocalBounds();
+        sprite.setOrigin(originX * spriteRect.width, originY * spriteRect.height);
+    }
+
 }

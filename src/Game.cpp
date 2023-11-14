@@ -26,7 +26,7 @@ namespace ApplesGame
 
 	void InitGame(Game& game)
 	{
-		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\Player.png"));
+		assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "\/Player.png"));
 		game.background.setSize(sf::Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
 		game.background.setFillColor(sf::Color::Black);
 		game.background.setPosition(0.f, 0.f);

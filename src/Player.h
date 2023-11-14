@@ -21,7 +21,7 @@ namespace ApplesGame
 		PlayerDirection direction = PlayerDirection::Right;
 		//sf::RectangleShape shape;
 		sf::Sprite sprite;
-	
+
 
 	};
 

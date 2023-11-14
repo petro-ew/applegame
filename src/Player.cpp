@@ -12,6 +12,8 @@ namespace ApplesGame
 	
 		// Init player sprite texture
 		player.sprite.setTexture(game.playerTexture);
+        SetSpriteSize(player.sprite, PLAYER_SIZE, PLAYER_SIZE);
+        SetSpriteRelativeOrigin(player.sprite, 0.5f, 0.5f);
 
 		// Init player shape
 		//player.shape.setSize(sf::Vector2f(PLAYER_SIZE, PLAYER_SIZE));

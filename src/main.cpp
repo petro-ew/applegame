@@ -28,7 +28,10 @@ int main()
 	// Main loop
 	while (window.isOpen())
 	{
-		// Calculate time delta
+		// Reduce framerate to not spam CPU and GPU
+        sf::sleep(sf::microseconds(16));
+
+        // Calculate time delta
 		float currentTime = gameClock.getElapsedTime().asSeconds();
 		float deltaTime = currentTime - lastTime;
 		lastTime = currentTime;
