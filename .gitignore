@@ -18,6 +18,7 @@
 *.target.xml
 /.kdev4
 /.vscode
+/cmake-*
 /cmake-build-debug
 cmake_install.cmake
 Makefile
