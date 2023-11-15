@@ -6,11 +6,11 @@
 namespace ApplesGame
 {
 
-	struct Apple
-	{
-		Position2D position;
-		sf::CircleShape shape;
-	};
+struct Apple
+{
+    Position2D position;
+    sf::CircleShape shape;
+};
 
-	void InitApple(Apple& apple);
-}
+void InitApple(Apple& apple);
+} // namespace ApplesGame

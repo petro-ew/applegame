@@ -6,11 +6,11 @@
 namespace ApplesGame
 {
 
-	struct Rock
-	{
-		Position2D position;
-		sf::RectangleShape shape;
-	};
-	
-	void InitRock(Rock& rock);
-}
+struct Rock
+{
+    Position2D position;
+    sf::RectangleShape shape;
+};
+
+void InitRock(Rock& rock);
+} // namespace ApplesGame
