@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-message ("starting cmake compiling apples")
+message("starting cmake compiling apples")
 #set(CMAKE_CXX_STANDARD C17)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -7,28 +7,28 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 # создаём новый проект
 project(applegame)
 #add_subdirectory (src)
-set ("${PROJECT}_BINARY_DIR"  bin)
+set("${PROJECT}_BINARY_DIR" bin)
 #set ("${PROJECT}_SOURCE_DIR" src:include)
-set ("${PROJECT}_LIB_DIR" lib)
-set (CMAKE_INCLUDE_PATH ${${PROJECT}_SOURCE_DIR})
+set("${PROJECT}_LIB_DIR" lib)
+set(CMAKE_INCLUDE_PATH ${${PROJECT}_SOURCE_DIR})
 #set (CMAKE_LIBRARY_PATH ${${PROJECT}_LIB_DIR})
 #set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/${${PROJECT}_BINARY_DIR})
-set (CMAKE_VERBOSE_MAKEFILE ON)
-set (CMAKE_BUILD_TYPE Debug)
-set (ERR_NO_UNIX "Cannot build on non Unix systems")
-if ( WITH_DEBUG_MODE )
-     ADD_DEFINITIONS( -DMY_DEBUG_MODE=1)
-endif()
-if ( CMAKE_COMPILER_IS_GNUCXX )
-    set(MY_CXX_FLAGS  "-Wall -std=c++20 -fmessage-length=0 -v -L/usr/local/lib -L/usr/lib -lsfml-graphics -lsfml-window -lsfml-system")
+set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_BUILD_TYPE Debug)
+set(ERR_NO_UNIX "Cannot build on non Unix systems")
+if (WITH_DEBUG_MODE)
+    ADD_DEFINITIONS(-DMY_DEBUG_MODE=1)
+endif ()
+if (CMAKE_COMPILER_IS_GNUCXX)
+    set(MY_CXX_FLAGS "-Wall -std=c++20 -fmessage-length=0 -v -L/usr/local/lib -L/usr/lib -lsfml-graphics -lsfml-window -lsfml-system")
     set(CMAKE_CXX_FLAGS "-O0 ${MY_CXX_FLAGS}")
     # я отключил настройку разных флагов для релиза и отладки. Пока что не нужно.
     #set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -fno-reorder-blocks -fno-schedule-insns -fno-inline")
     #set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 else ()
-    message (FATAL_ERROR ${ERR_NO_UNIX})
+    message(FATAL_ERROR ${ERR_NO_UNIX})
 endif ()
-set(SOURCE main.cpp Apple.cpp Game.cpp Math.cpp Player.cpp  Rock.cpp)
+set(SOURCE main.cpp Apple.cpp Game.cpp Math.cpp Player.cpp Rock.cpp)
 set(HEADER Apple.h config.h Constants.h Game.h Math.h Player.h Rock.h)
 
 find_package(SFML COMPONENTS graphics window system)
@@ -37,14 +37,16 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 include_directories("src/")
 
 add_executable(applegame src/main.cpp
-src/Apple.cpp
-src/Game.cpp
-src/Math.cpp
-src/Player.cpp
-src/Rock.cpp
+        src/Apple.cpp
+        src/Game.cpp
+        src/Math.cpp
+        src/Player.cpp
+        src/Rock.cpp
+        src/UI.h
+        src/UI.cpp
 )
 
-find_package (SFML 2.6 COMPONENTS graphics audio network REQUIRED)
+find_package(SFML 2.6 COMPONENTS graphics audio network REQUIRED)
 
 # в текущем проекте ничего не нужно дополнительно компилировать
 #set (LIBRARIES)

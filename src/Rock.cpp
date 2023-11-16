@@ -2,6 +2,8 @@
 
 namespace ApplesGame
 {
+
+
 	void InitRock(Rock& rock)
 	{
 		rock.position = GetRandomPositionInScreen(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -11,4 +13,5 @@ namespace ApplesGame
 		rock.shape.setOrigin(ROCK_SIZE / 2.f, ROCK_SIZE / 2.f);
 		rock.shape.setPosition(rock.position.x, rock.position.y);
 	}
-}
+
+} // namespace ApplesGame

@@ -11,4 +11,4 @@ namespace ApplesGame
 		apple.shape.setOrigin(APPLE_SIZE / 2.f, APPLE_SIZE / 2.f);
 		apple.shape.setPosition(apple.position.x, apple.position.y);
 	}
-}
+} // namespace ApplesGame
