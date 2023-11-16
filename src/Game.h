@@ -24,7 +24,8 @@ namespace ApplesGame
         sf::RectangleShape background;
         // Resources
         sf::Texture playerTexture;
-        
+        sf::Texture rockTexture;
+        sf::Texture appleTexture;
     };
     
     void RestartGame (Game &game);

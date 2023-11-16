@@ -9,12 +9,12 @@ namespace ApplesGame
         
         // Init apples
         for (int i = 0; i < NUM_APPLES; ++i) {
-            InitApple (game.apples[i]);
+            InitApple (game.apples[i], game);
         }
         
         // Init rocks
         for (int i = 0; i < NUM_ROCKS; ++i) {
-            InitRock (game.rocks[i]);
+            InitRock (game.rocks[i], game);
         }
         
         
@@ -28,6 +28,9 @@ namespace ApplesGame
     void InitGame (Game &game)
     {
         assert(game.playerTexture.loadFromFile (RESOURCES_PATH + "/Player.png"));
+        assert(game.rockTexture.loadFromFile (RESOURCES_PATH + "/Rock.png"));
+        assert(game.appleTexture.loadFromFile (RESOURCES_PATH + "/Apple.png"));
+        
         game.background.setSize (sf::Vector2f (SCREEN_WIDTH, SCREEN_HEIGHT));
         game.background.setFillColor (sf::Color::Black);
         game.background.setPosition (0.f, 0.f);
@@ -57,18 +60,26 @@ namespace ApplesGame
             switch (game.player.direction) {
                 case PlayerDirection::Right: {
                     game.player.position.x += game.player.speed * deltaTime;
+                    
+                    
                     break;
                 }
                 case PlayerDirection::Up: {
+                    
                     game.player.position.y -= game.player.speed * deltaTime;
+                    
                     break;
                 }
                 case PlayerDirection::Left: {
+                    
                     game.player.position.x -= game.player.speed * deltaTime;
+                    
+                    
                     break;
                 }
                 case PlayerDirection::Down: {
                     game.player.position.y += game.player.speed * deltaTime;
+                    
                     break;
                 }
             }
@@ -116,15 +127,31 @@ namespace ApplesGame
         window.draw (game.background);
         //game.player.shape.setPosition(game.player.position.x, game.player.position.y);
         //window.draw(game.player.shape);
-        DrawPlayer (game.player, window);
+        if (game.player.direction == PlayerDirection::Right) {
+            game.player.sprite.setRotation (0.f);
+            DrawPlayer (game.player, window);
+        }
+        else if (game.player.direction == PlayerDirection::Left) {
+            game.player.sprite.setRotation (180.f);
+            DrawPlayer (game.player, window);
+        }
+        else if (game.player.direction == PlayerDirection::Up) {
+            game.player.sprite.setRotation (270.f);
+            DrawPlayer (game.player, window);
+        }
+        else if (game.player.direction == PlayerDirection::Down) {
+            game.player.sprite.setRotation (90.f);
+            DrawPlayer (game.player, window);
+        }
+        
         for (int i = 0; i < NUM_APPLES; ++i) {
-            game.apples[i].shape.setPosition (game.apples[i].position.x, game.apples[i].position.y);
-            window.draw (game.apples[i].shape);
+            game.apples[i].sprite.setPosition (game.apples[i].position.x, game.apples[i].position.y);
+            window.draw (game.apples[i].sprite);
         }
         
         for (int i = 0; i < NUM_ROCKS; ++i) {
-            game.rocks[i].shape.setPosition (game.rocks[i].position.x, game.rocks[i].position.y);
-            window.draw (game.rocks[i].shape);
+            game.rocks[i].sprite.setPosition (game.rocks[i].position.x, game.rocks[i].position.y);
+            window.draw (game.rocks[i].sprite);
         }
         drawScoreText (game.ui, window);
     }
