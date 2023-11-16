@@ -20,7 +20,7 @@ if (WITH_DEBUG_MODE)
     ADD_DEFINITIONS(-DMY_DEBUG_MODE=1)
 endif ()
 if (CMAKE_COMPILER_IS_GNUCXX)
-    set(MY_CXX_FLAGS "-Wall -std=c++20 -fmessage-length=0 -v -L/usr/local/lib -L/usr/lib -lsfml-graphics -lsfml-window -lsfml-system")
+    set(MY_CXX_FLAGS "-Wall -std=c++20 -fmessage-length=0 -v -L/usr/local/lib -L/usr/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system")
     set(CMAKE_CXX_FLAGS "-O0 ${MY_CXX_FLAGS}")
     # я отключил настройку разных флагов для релиза и отладки. Пока что не нужно.
     #set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -fno-reorder-blocks -fno-schedule-insns -fno-inline")

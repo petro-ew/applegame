@@ -7,6 +7,8 @@
 #include "Apple.h"
 #include "Rock.h"
 #include <iostream>
+#include <SFML/Audio/Sound.hpp>
+#include <SFML/Audio/SoundBuffer.hpp>
 #include "UI.h"
 
 namespace ApplesGame
@@ -26,6 +28,10 @@ namespace ApplesGame
         sf::Texture playerTexture;
         sf::Texture rockTexture;
         sf::Texture appleTexture;
+        sf::SoundBuffer soundBufferApple;
+        sf::SoundBuffer soundBufferDeath;
+        sf::Sound soundDeath;
+        sf::Sound soundApple;
     };
     
     void RestartGame (Game &game);

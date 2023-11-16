@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <cassert>
 
+
 namespace ApplesGame
 {
     void RestartGame (Game &game)
@@ -23,13 +24,28 @@ namespace ApplesGame
         game.timeSinceGameFinish = 0;
         
         initScoreText (game.ui, game);
+        initGameOverText (game.ui, game);
     }
     
     void InitGame (Game &game)
     {
+        try {
+            game.ui.font.loadFromFile (RESOURCES_PATH + "/Fonts" + "/Roboto-Regular.ttf");
+            game.ui.scoreTxt.setFont (game.ui.font);
+            game.ui.gameOverText.setFont (game.ui.font);
+        }
+        catch (...) {
+            std::cout << "не могу загрузить Roboto - Regular.ttf" << std::endl;
+            exit (0);
+        }
         assert(game.playerTexture.loadFromFile (RESOURCES_PATH + "/Player.png"));
         assert(game.rockTexture.loadFromFile (RESOURCES_PATH + "/Rock.png"));
         assert(game.appleTexture.loadFromFile (RESOURCES_PATH + "/Apple.png"));
+        assert(game.soundBufferApple.loadFromFile (RESOURCES_PATH + "/AppleEat.wav"));
+        assert(game.soundBufferDeath.loadFromFile (RESOURCES_PATH + "/Death.wav"));
+        
+        game.soundApple.setBuffer (game.soundBufferApple);
+        game.soundDeath.setBuffer (game.soundBufferDeath);
         
         game.background.setSize (sf::Vector2f (SCREEN_WIDTH, SCREEN_HEIGHT));
         game.background.setFillColor (sf::Color::Black);
@@ -90,6 +106,7 @@ namespace ApplesGame
                     game.apples[i].position = GetRandomPositionInScreen (SCREEN_WIDTH, SCREEN_HEIGHT);
                     ++game.numEatenApples;
                     initScoreText (game.ui, game);
+                    game.soundApple.play ();
                     game.player.speed += ACCELERATION;
                 }
             }
@@ -99,6 +116,7 @@ namespace ApplesGame
                 if (IsRectanglesCollide (game.player.position, {PLAYER_SIZE, PLAYER_SIZE}, game.rocks[i].position, {ROCK_SIZE, ROCK_SIZE})) {
                     game.isGameFinished = true;
                     game.timeSinceGameFinish = 0.f;
+                    game.soundDeath.play ();
                 }
             }
             
@@ -106,6 +124,7 @@ namespace ApplesGame
             if (game.player.position.x - PLAYER_SIZE / 2.f < 0.f || game.player.position.x + PLAYER_SIZE / 2.f > SCREEN_WIDTH || game.player.position.y - PLAYER_SIZE / 2.f < 0.f || game.player.position.y + PLAYER_SIZE / 2.f > SCREEN_HEIGHT) {
                 game.isGameFinished = true;
                 game.timeSinceGameFinish = 0.f;
+                game.soundDeath.play ();
             }
         }
         else {
@@ -154,6 +173,10 @@ namespace ApplesGame
             window.draw (game.rocks[i].sprite);
         }
         drawScoreText (game.ui, window);
+        
+        if (game.isGameFinished == true) {
+            drawGameOverText (game.ui, window);
+        }
     }
     
     void DeinializeGame (Game &game)

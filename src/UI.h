@@ -14,8 +14,9 @@ namespace ApplesGame
     struct UI {
         sf::Text scoreTxt;
         sf::Font font;
+        sf::Text gameOverText;
         int scoreTextSize = 24;
-        
+        int gameOverTextSize = 120;
         Position2D position;
         
     };
@@ -25,4 +26,8 @@ namespace ApplesGame
     void initScoreText (UI &ui, const Game &game);
     
     void drawScoreText (UI &ui, sf::RenderWindow &window);
+    
+    void initGameOverText (UI &ui, const Game &game);
+    
+    void drawGameOverText (UI &ui, sf::RenderWindow &window);
 } // namespace ApplesGame
