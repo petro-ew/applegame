@@ -1,1 +1,0 @@
-  -L"/home/petroew/source/applegame/SFML-2.6.1-WIN/SFML-2.6.1-WIN/lib"  "lib/libsfml-graphics-d.a" "lib/libsfml-audio-d.a" "lib/libsfml-network-d.a" "lib/libsfml-window-d.a" "lib/libsfml-system-d.a" -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

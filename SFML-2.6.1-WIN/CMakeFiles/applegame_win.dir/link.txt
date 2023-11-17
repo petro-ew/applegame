@@ -1,3 +1,0 @@
-/usr/bin/cmake -E rm -f CMakeFiles/applegame_win.dir/objects.a
-/usr/bin/x86_64-w64-mingw32-ar qc CMakeFiles/applegame_win.dir/objects.a @CMakeFiles/applegame_win.dir/objects1.rsp
-/usr/bin/x86_64-w64-mingw32-g++  -std=c++20 -Wl,--whole-archive CMakeFiles/applegame_win.dir/objects.a -Wl,--no-whole-archive -o bin/applegame_win.exe -Wl,--out-implib,libapplegame_win.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/applegame_win.dir/linkLibs.rsp

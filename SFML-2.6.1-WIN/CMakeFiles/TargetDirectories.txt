@@ -1,3 +1,0 @@
-/home/petroew/source/applegame/SFML-2.6.1-WIN/CMakeFiles/applegame_win.dir
-/home/petroew/source/applegame/SFML-2.6.1-WIN/CMakeFiles/edit_cache.dir
-/home/petroew/source/applegame/SFML-2.6.1-WIN/CMakeFiles/rebuild_cache.dir
