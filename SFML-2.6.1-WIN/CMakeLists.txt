@@ -3,7 +3,7 @@ message("starting cmake compiling apples")
 #set(CMAKE_CXX_STANDARD C17)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20 -static-libgcc -static-libstdc++ -L.")
 # создаём новый проект
 project(applegame_win)
 
