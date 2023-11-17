@@ -32,6 +32,8 @@ CMakeCache.txt
 /SFML-2.6.1-WIN/include
 /SFML-2.6.1-WIN/lib
 #/SFML-2.6.1-WIN/CmakeLists.txt
+/SFML-2.6.1-WIN/CMakeFiles/
+
 /SFML-2.6.1-WIN/readme.md
 /SFML-2.6.1-WIN/license.md
 
