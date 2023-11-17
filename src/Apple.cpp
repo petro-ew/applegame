@@ -3,7 +3,7 @@
 
 namespace ApplesGame
 {
-    void InitApple (Apple &apple, const Game &game)
+    void InitApple (Apple &apple, const struct Game &game)
     {
         apple.position = GetRandomPositionInScreen (SCREEN_WIDTH, SCREEN_HEIGHT);
         

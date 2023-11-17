@@ -28,7 +28,7 @@ namespace ApplesGame
         window.draw (ui.scoreTxt);
     }
     
-    void initGameOverText (UI &ui, const Game &game)
+    void initGameOverText (UI &ui, const struct Game &game)
     {
         
         ui.gameOverText.setCharacterSize (ui.gameOverTextSize);

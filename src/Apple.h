@@ -14,5 +14,5 @@ namespace ApplesGame
     };
     struct Game;
     
-    void InitApple (Apple &apple, const Game &game);
+    void InitApple (Apple &apple, const struct Game &game);
 } // namespace ApplesGame

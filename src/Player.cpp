@@ -3,7 +3,7 @@
 
 namespace ApplesGame
 {
-    void InitPlayer (Player &player, const Game &game)
+    void InitPlayer (Player &player, const struct Game &game)
     {
         // Init player state
         player.position = {SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 2.f};

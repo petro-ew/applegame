@@ -24,7 +24,7 @@ namespace ApplesGame
     
     struct Game;
     
-    void InitPlayer (Player &player, const Game &game);
+    void InitPlayer (Player &player, const struct Game &game);
     
     void DrawPlayer (Player &player, sf::RenderWindow &window);
 } // namespace ApplesGame
