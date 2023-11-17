@@ -26,6 +26,15 @@ CMakeCache.txt
 /src/Makefile
 /src/CMakeFiles
 /src/cmake_install.cmake
+/SFML-2.6.1-WIN/bin
+/SFML-2.6.1-WIN/doc
+/SFML-2.6.1-WIN/examples
+/SFML-2.6.1-WIN/include
+/SFML-2.6.1-WIN/lib
+#/SFML-2.6.1-WIN/CmakeLists.txt
+/SFML-2.6.1-WIN/readme.md
+/SFML-2.6.1-WIN/license.md
+
 
 #Ignore Intermediate folders
 /obj
