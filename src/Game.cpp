@@ -87,29 +87,21 @@ namespace ApplesGame
                 case PlayerDirection::Right:
                 {
                     game.player.position.x += game.player.speed * deltaTime;
-                    
-                    
                     break;
                 }
                 case PlayerDirection::Up:
                 {
-                    
                     game.player.position.y -= game.player.speed * deltaTime;
-                    
                     break;
                 }
                 case PlayerDirection::Left:
                 {
-                    
                     game.player.position.x -= game.player.speed * deltaTime;
-                    
-                    
                     break;
                 }
                 case PlayerDirection::Down:
                 {
                     game.player.position.y += game.player.speed * deltaTime;
-                    
                     break;
                 }
             }
@@ -131,9 +123,7 @@ namespace ApplesGame
                 if (IsRectanglesCollide(game.player.position, {PLAYER_SIZE, PLAYER_SIZE}, game.rocks[i].position, {
                         ROCK_SIZE, ROCK_SIZE}))
                 {
-                    game.isGameFinished = true;
-                    game.timeSinceGameFinish = 0.f;
-                    game.soundDeath.play();
+                    GameOver(game);
                 }
             }
             
@@ -143,9 +133,7 @@ namespace ApplesGame
                 game.player.position.y - PLAYER_SIZE / 2.f < 0.f ||
                 game.player.position.y + PLAYER_SIZE / 2.f > SCREEN_HEIGHT)
             {
-                game.isGameFinished = true;
-                game.timeSinceGameFinish = 0.f;
-                game.soundDeath.play();
+                GameOver(game);
             }
         }
         else
@@ -213,5 +201,12 @@ namespace ApplesGame
     void DeinializeGame(Game &game)
     {
     
+    }
+    
+    void GameOver(Game &game)
+    {
+        game.isGameFinished = true;
+        game.timeSinceGameFinish = 0.f;
+        game.soundDeath.play();
     }
 } // namespace ApplesGame

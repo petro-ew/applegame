@@ -42,6 +42,7 @@ namespace ApplesGame
     
     void UpdateGame(Game &game, float deltaTime);
     
+    void GameOver(Game &game);
     
     void DrawGame(Game &game, sf::RenderWindow &window);
     
