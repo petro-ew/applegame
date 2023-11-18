@@ -45,7 +45,7 @@ namespace ApplesGame
         window.draw(ui.gameOverText);
     }
     
-    void updateScoreText(UI &ui, const Game &game)
+    void UpdateScoreText(UI &ui, const Game &game)
     {
         ui.scoreTxt.setString("Monti strike: " + std::to_string(game.numEatenApples));
     }

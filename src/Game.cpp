@@ -64,19 +64,23 @@ namespace ApplesGame
         if (!game.isGameFinished)
         {
             // Handle input
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
+                (sf::Keyboard::isKeyPressed(sf::Keyboard::D)))
             {
                 game.player.direction = PlayerDirection::Right;
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
+                     (sf::Keyboard::isKeyPressed(sf::Keyboard::W)))
             {
                 game.player.direction = PlayerDirection::Up;
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
+                     (sf::Keyboard::isKeyPressed(sf::Keyboard::A)))
             {
                 game.player.direction = PlayerDirection::Left;
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) ||
+                     (sf::Keyboard::isKeyPressed(sf::Keyboard::S)))
             {
                 game.player.direction = PlayerDirection::Down;
             }
@@ -112,8 +116,8 @@ namespace ApplesGame
                 if (IsCirclesCollide(game.player.position,
                                      PLAYER_SIZE / 2.f, game.apples[i].position, APPLE_SIZE / 2.f))
                 {
-                    updateAppleSpritePosition(i, game);
-                    updateScoreText(game.ui, game);
+                    UpdateAppleSpritePosition(i, game);
+                    UpdateScoreText(game.ui, game);
                 }
             }
             
@@ -182,7 +186,7 @@ namespace ApplesGame
         for (int i = 0; i < NUM_APPLES; ++i)
         {
             game.apples[i].sprite.setPosition(game.apples[i].position.x, game.apples[i].position.y);
-            window.draw(game.apples[i].sprite);
+            DrawApple(i, game, window);
         }
         
         for (int i = 0; i < NUM_ROCKS; ++i)

@@ -11,7 +11,8 @@
 namespace ApplesGame
 {
     
-    struct UI {
+    struct UI
+    {
         sf::Text scoreTxt;
         sf::Font font;
         sf::Text gameOverText;
@@ -25,7 +26,7 @@ namespace ApplesGame
     
     void initScoreText(UI &ui, const struct Game &game);
     
-    void updateScoreText(UI &ui, const struct Game &game);
+    void UpdateScoreText(UI &ui, const struct Game &game);
     
     void drawScoreText(UI &ui, sf::RenderWindow &window);
     

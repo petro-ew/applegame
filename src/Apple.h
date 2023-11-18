@@ -18,5 +18,7 @@ namespace ApplesGame
     
     void InitApple(Apple &apple, const struct Game &game);
     
-    void updateAppleSpritePosition(int i, struct Game &game);
+    void UpdateAppleSpritePosition(int i, struct Game &game);
+    
+    void DrawApple(int i, const struct Game &game, sf::RenderWindow &window);
 } // namespace ApplesGame

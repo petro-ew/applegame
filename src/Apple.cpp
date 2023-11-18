@@ -1,5 +1,6 @@
 #include "Apple.h"
 #include "Game.h"
+#include "Math.h"
 
 namespace ApplesGame
 {
@@ -16,11 +17,17 @@ namespace ApplesGame
         apple.sprite.setPosition(apple.position.x, apple.position.y);
     }
     
-    void updateAppleSpritePosition(int i, struct Game &game)
+    void UpdateAppleSpritePosition(int i, struct Game &game)
     {
         game.apples[i].position = GetRandomPositionInScreen(SCREEN_WIDTH, SCREEN_HEIGHT);
         ++game.numEatenApples;
         game.soundApple.play();
         game.player.speed += ACCELERATION;
+    }
+    
+    void DrawApple(int i, const struct Game &game, sf::RenderWindow &window)
+    {
+        
+        window.draw(game.apples[i].sprite);
     }
 } // namespace ApplesGame
