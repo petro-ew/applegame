@@ -23,11 +23,13 @@ namespace ApplesGame
     
     struct Game;
     
-    void initScoreText (UI &ui, const struct Game &game);
+    void initScoreText(UI &ui, const struct Game &game);
     
-    void drawScoreText (UI &ui, sf::RenderWindow &window);
+    void updateScoreText(UI &ui, const struct Game &game);
     
-    void initGameOverText (UI &ui, const struct Game &game);
+    void drawScoreText(UI &ui, sf::RenderWindow &window);
     
-    void drawGameOverText (UI &ui, sf::RenderWindow &window);
+    void initGameOverText(UI &ui, const struct Game &game);
+    
+    void drawGameOverText(UI &ui, sf::RenderWindow &window);
 } // namespace ApplesGame

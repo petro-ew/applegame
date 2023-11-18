@@ -23,6 +23,7 @@ namespace ApplesGame
         int numEatenApples = 0;
         bool isGameFinished = false;
         float timeSinceGameFinish = 0.f;
+        
         sf::RectangleShape background;
         // Resources
         sf::Texture playerTexture;
@@ -34,13 +35,13 @@ namespace ApplesGame
         sf::Sound soundApple;
     };
     
-    void RestartGame (Game &game);
+    void RestartGame(Game &game);
     
-    void InitGame (Game &game);
+    void InitGame(Game &game);
     
-    void UpdateGame (Game &game, float deltaTime);
+    void UpdateGame(Game &game, float deltaTime);
     
-    void DrawGame (Game &game, sf::RenderWindow &window);
+    void DrawGame(Game &game, sf::RenderWindow &window);
     
-    void DeinializeGame (Game &game);
+    void DeinializeGame(Game &game);
 } // namespace ApplesGame
