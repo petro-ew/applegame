@@ -7,7 +7,8 @@
 namespace ApplesGame
 {
     
-    struct Apple {
+    struct Apple
+    {
         Position2D position;
         float isAppleEaten = 0;
         //sf::CircleShape shape;
@@ -17,5 +18,5 @@ namespace ApplesGame
     
     void InitApple(Apple &apple, const struct Game &game);
     
-    void updateAppleSprite();
+    void updateAppleSpritePosition(int i, struct Game &game);
 } // namespace ApplesGame

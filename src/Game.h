@@ -13,7 +13,8 @@
 
 namespace ApplesGame
 {
-    struct Game {
+    struct Game
+    {
         Player player;
         UI ui;
         Apple apples[NUM_APPLES];
@@ -40,6 +41,7 @@ namespace ApplesGame
     void InitGame(Game &game);
     
     void UpdateGame(Game &game, float deltaTime);
+    
     
     void DrawGame(Game &game, sf::RenderWindow &window);
     

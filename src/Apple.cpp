@@ -6,7 +6,6 @@ namespace ApplesGame
     void InitApple(Apple &apple, const struct Game &game)
     {
         apple.position = GetRandomPositionInScreen(SCREEN_WIDTH, SCREEN_HEIGHT);
-        
         apple.sprite.setTexture(game.appleTexture);
         SetSpriteSize(apple.sprite, APPLE_SIZE, APPLE_SIZE);
         SetSpriteRelativeOrigin(apple.sprite, 0.5f, 0.5f);
@@ -17,5 +16,11 @@ namespace ApplesGame
         apple.sprite.setPosition(apple.position.x, apple.position.y);
     }
     
-    void updateAppleSprite() {}
+    void updateAppleSpritePosition(int i, struct Game &game)
+    {
+        game.apples[i].position = GetRandomPositionInScreen(SCREEN_WIDTH, SCREEN_HEIGHT);
+        ++game.numEatenApples;
+        game.soundApple.play();
+        game.player.speed += ACCELERATION;
+    }
 } // namespace ApplesGame
