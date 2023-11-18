@@ -38,7 +38,7 @@ namespace ApplesGame
     
     void drawGameOverText(UI &ui, sf::RenderWindow &window)
     {
-        sf::Vector2f centerPos = sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2);
+        sf::Vector2f centerPos = getCenterPositionInScreen(window);
         ui.gameOverText.setPosition(
                 centerPos.x - ui.gameOverText.getGlobalBounds().width / 2,
                 centerPos.y - ui.gameOverTextSize / 2 - ui.gameOverText.getGlobalBounds().height / 2);
