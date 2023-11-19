@@ -11,21 +11,20 @@ find_package(SFML COMPONENTS graphics audio window system)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 include_directories("/home/petroew/source/applegame/src/")
-
+set(SFML_LIBRARY_DIR "../SFML-2.6.1-WIN/lib")
 add_executable(applegame_win /home/petroew/source/applegame/src/main.cpp
         /home/petroew/source/applegame/src/Apple.cpp
         /home/petroew/source/applegame/src/Game.cpp
         /home/petroew/source/applegame/src/Math.cpp
         /home/petroew/source/applegame/src/Player.cpp
         /home/petroew/source/applegame/src/Rock.cpp
-        /home/petroew/source/applegame/src/UI.h
         /home/petroew/source/applegame/src/UI.cpp
 )
 
 find_package(SFML 2.6 COMPONENTS graphics audio network REQUIRED)
 
 
-target_link_libraries (applegame_win sfml-system sfml-graphics sfml-audio sfml-network)
+target_link_libraries(applegame_win sfml-system sfml-graphics sfml-audio sfml-network sfml-system sfml-window)
 
 # Typical usage:
 #    *) install cross compiler: `sudo apt-get install mingw-w64`
@@ -72,9 +71,9 @@ target_link_libraries (applegame_win sfml-system sfml-graphics sfml-audio sfml-n
 #if (CMAKE_COMPILER_IS_GNUCXX)
 #    set(MY_CXX_FLAGS "-Wall -std=c++20 -fmessage-length=0 -v -L/usr/local/lib -L/usr/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system")
 #    set(CMAKE_CXX_FLAGS "-O0 ${MY_CXX_FLAGS}")
-    # я отключил настройку разных флагов для релиза и отладки. Пока что не нужно.
-    #set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -fno-reorder-blocks -fno-schedule-insns -fno-inline")
-    #set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+# я отключил настройку разных флагов для релиза и отладки. Пока что не нужно.
+#set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -fno-reorder-blocks -fno-schedule-insns -fno-inline")
+#set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 #else ()
 #    message(FATAL_ERROR ${ERR_NO_UNIX})
 #endif ()

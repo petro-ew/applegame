@@ -7,11 +7,13 @@
 namespace ApplesGame
 {
     
-    enum class PlayerDirection {
+    enum class PlayerDirection
+    {
         Right = 0, Up, Left, Down
     };
     
-    struct Player {
+    struct Player
+    {
         Position2D position;
         float speed = INITIAL_SPEED;
         PlayerDirection direction = PlayerDirection::Right;
@@ -24,7 +26,19 @@ namespace ApplesGame
     
     struct Game;
     
-    void InitPlayer (Player &player, const struct Game &game);
+    void initPlayer(Player &player, const struct Game &game);
     
-    void DrawPlayer (Player &player, sf::RenderWindow &window);
+    void setPlayerDirection(Player &player, PlayerDirection direction);
+    
+    void setPlayerPosition(Player &player, const Position2D &position);
+    
+    void setPlayerSpeed(Player &player, float);
+    
+    float getPlayerSpeed(const Player &player);
+    
+    Rectangle getPlayerCollider(const Player &player);
+    
+    void updatePlayer(Player &player, float deltaTime);
+    
+    void drawPlayer(Player &player, sf::RenderWindow &window);
 } // namespace ApplesGame

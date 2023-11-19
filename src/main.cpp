@@ -16,26 +16,21 @@ int main()
     srand(seed);
     // Init window
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Apples game!");
-    
     // Game initialization
     Game game;
-    InitGame(game);
-    
+    initGame(game);
     // Init game clocks
     sf::Clock gameClock;
     float lastTime = gameClock.getElapsedTime().asSeconds();
-    
     // Main loop
     while (window.isOpen())
     {
         // Reduce framerate to not spam CPU and GPU
         sf::sleep(sf::microseconds(16));
-        
         // Calculate time delta
         float currentTime = gameClock.getElapsedTime().asSeconds();
         float deltaTime = currentTime - lastTime;
         lastTime = currentTime;
-        
         // Read events
         sf::Event event;
         while (window.pollEvent(event))
@@ -61,37 +56,27 @@ int main()
             static bool is_M_pressed = false;
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::M && !is_M_pressed)
             {
-                
                 game.soundDeath.setVolume(0);
                 game.soundApple.setVolume(0);
                 initMuteText(game.ui, false);
                 is_M_pressed = true;
-                
             }
             else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::M && is_M_pressed)
             {
-                
                 game.soundDeath.setVolume(100);
                 game.soundApple.setVolume(100);
                 initMuteText(game.ui, true);
                 is_M_pressed = false;
-                
             }
-            
         }
-        
-        UpdateGame(game, deltaTime);
-        
+        updateGame(game, deltaTime);
         // Draw game
         window.clear();
-        DrawGame(game, window);
-        
+        drawGame(game, window);
         window.display();
     }
-    
     // Deinitialization
-    DeinializeGame(game);
-    
+    deinializeGame(game);
     return 0;
 }
 
