@@ -14,10 +14,13 @@ namespace ApplesGame
     struct UI
     {
         sf::Text scoreTxt;
-        sf::Font font;
+        //sf::Font font;
         sf::Text gameOverText;
+        sf::Text helpDesk;
+        sf::Text muteText;
         int scoreTextSize = 24;
         int gameOverTextSize = 120;
+        bool check_help = false;
         Position2D position;
         
     };
@@ -28,9 +31,18 @@ namespace ApplesGame
     
     void UpdateScoreText(UI &ui, const struct Game &game);
     
+    void initGameOverText(UI &ui);
+    
+    void initHelpDeskText(UI &ui, bool check);
+    
+    void initMuteText(UI &ui, bool check);
+    
     void drawScoreText(UI &ui, sf::RenderWindow &window);
     
-    void initGameOverText(UI &ui, const struct Game &game);
-    
     void drawGameOverText(UI &ui, sf::RenderWindow &window);
+    
+    void drawHelpDeskText(UI &ui, sf::RenderWindow &window);
+    
+    void drawMuteText(UI &ui, sf::RenderWindow &window);
+    
 } // namespace ApplesGame

@@ -25,23 +25,25 @@ namespace ApplesGame
         game.isGameFinished = false;
         game.timeSinceGameFinish = 0;
         
+        initHelpDeskText(game.ui, false);
         initScoreText(game.ui, game);
-        initGameOverText(game.ui, game);
+        initGameOverText(game.ui);
     }
     
     void InitGame(Game &game)
     {
+        /*
         try
         {
             game.ui.font.loadFromFile(RESOURCES_PATH + "/Fonts" + "/Roboto-Regular.ttf");
-            game.ui.scoreTxt.setFont(game.ui.font);
-            game.ui.gameOverText.setFont(game.ui.font);
-        }
+            }
         catch (...)
         {
             std::cout << "не могу загрузить Roboto - Regular.ttf" << std::endl;
             exit(0);
         }
+         */
+        assert(game.font.loadFromFile(RESOURCES_PATH + "/Fonts" + "/Roboto-Regular.ttf"));
         assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "/Player.png"));
         assert(game.rockTexture.loadFromFile(RESOURCES_PATH + "/Rock.png"));
         assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "/Apple.png"));
@@ -54,7 +56,14 @@ namespace ApplesGame
         game.background.setSize(sf::Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
         game.background.setFillColor(sf::Color::Black);
         game.background.setPosition(0.f, 0.f);
+        
+        game.ui.scoreTxt.setFont(game.font);
+        game.ui.gameOverText.setFont(game.font);
+        game.ui.helpDesk.setFont(game.font);
+        game.ui.muteText.setFont(game.font);
+        initMuteText(game.ui, true);
         initScoreText(game.ui, game);
+        initHelpDeskText(game.ui, false);
         RestartGame(game);
     }
     
@@ -84,6 +93,8 @@ namespace ApplesGame
             {
                 game.player.direction = PlayerDirection::Down;
             }
+            
+            
             
             // Update player state
             switch (game.player.direction)
@@ -162,6 +173,7 @@ namespace ApplesGame
         window.draw(game.background);
         //game.player.shape.setPosition(game.player.position.x, game.player.position.y);
         //window.draw(game.player.shape);
+        drawHelpDeskText(game.ui, window);
         if (game.player.direction == PlayerDirection::Right)
         {
             game.player.sprite.setRotation(0.f);
@@ -194,12 +206,15 @@ namespace ApplesGame
             game.rocks[i].sprite.setPosition(game.rocks[i].position.x, game.rocks[i].position.y);
             window.draw(game.rocks[i].sprite);
         }
-        drawScoreText(game.ui, window);
         
+        drawScoreText(game.ui, window);
+        drawMuteText(game.ui, window);
         if (game.isGameFinished == true)
         {
             drawGameOverText(game.ui, window);
         }
+        
+        
     }
     
     void DeinializeGame(Game &game)
