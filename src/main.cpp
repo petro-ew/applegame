@@ -1,7 +1,7 @@
 ﻿// ©2023, XYZ School. All rights reserved.
 // Authored by Aleksandr Rybalka (polterageist@gmail.com)
-//gcc -c -std=c++20 -fmodules-ts  *.cpp
-//g++ *.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system      
+// gcc -c -std=c++20 -fmodules-ts  *.cpp
+// g++ *.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -12,7 +12,7 @@
 int main()
 {
     using namespace ApplesGame;
-    int seed = (int) time(nullptr);
+    int seed = (int)time(nullptr);
     srand(seed);
     // Init window
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Apples game!");
@@ -53,20 +53,9 @@ int main()
             {
                 initHelpDeskText(game.ui, false);
             }
-            static bool is_M_pressed = false;
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::M && !is_M_pressed)
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::M)
             {
-                game.soundDeath.setVolume(0);
-                game.soundApple.setVolume(0);
-                initMuteText(game.ui, false);
-                is_M_pressed = true;
-            }
-            else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::M && is_M_pressed)
-            {
-                game.soundDeath.setVolume(100);
-                game.soundApple.setVolume(100);
-                initMuteText(game.ui, true);
-                is_M_pressed = false;
+                setSoundEnable(game.isSoundEnable, game);
             }
         }
         updateGame(game, deltaTime);
@@ -79,4 +68,3 @@ int main()
     deinializeGame(game);
     return 0;
 }
-
