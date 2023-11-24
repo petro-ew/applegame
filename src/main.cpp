@@ -11,7 +11,7 @@
 // #include "MainMenu.h"
 
 // int main()
-void main(int argc, void** argv[])
+int main(int argc, void** argv[])
 {
     // Program entry point.
     Game game;
@@ -21,7 +21,7 @@ void main(int argc, void** argv[])
         game.Render();
         game.LateUpdate();
     }
-    // return 0;
+    return 0;
 }
 
 /*
