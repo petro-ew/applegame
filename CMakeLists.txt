@@ -44,6 +44,23 @@ add_executable(applegame src/main.cpp
         src/Rock.cpp
         src/UI.h
         src/UI.cpp
+        src/MainMenu.h
+        src/Window.cpp
+        src/Window.h
+        src/EventManager.cpp
+        src/EventManager.h
+        src/StateManager.cpp
+        src/StateManager.h
+        src/State_Intro.cpp
+        src/State_Intro.h
+        src/State_MainMenu.cpp
+        src/State_MainMenu.h
+        src/State_Game.cpp
+        src/State_Game.h
+        src/State_Paused.cpp
+        src/State_Paused.h
+        src/SharedContext.h
+        src/BaseState.h
 )
 
 find_package(SFML 2.6 COMPONENTS graphics audio network REQUIRED)

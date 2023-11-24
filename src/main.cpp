@@ -8,15 +8,36 @@
 #include "Constants.h"
 #include "Game.h"
 #include <string>
+#include "MainMenu.h"
 
+void main(int argc, void** argv[])
+{
+    // Program entry point.
+    Game game;
+    while (!game.GetWindow()->IsDone())
+    {
+        game.Update();
+        game.Render();
+        game.LateUpdate();
+    }
+}
+
+/*
 int main()
 {
     using namespace ApplesGame;
     int seed = (int)time(nullptr);
     srand(seed);
     // Init window
+    mainMenu main_menu;
+
+    sf::RenderWindow windowMenu(sf::VideoMode(1920, 1080), "Apples game!");
+    menuInit(main_menu, windowMenu);
+    menu(main_menu, windowMenu);
+
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Apples game!");
-    // Game initialization
+
+    //   Game initialization
     Game game;
     initGame(game);
     // Init game clocks
@@ -64,7 +85,11 @@ int main()
         drawGame(game, window);
         window.display();
     }
+
+
     // Deinitialization
     deinializeGame(game);
     return 0;
 }
+
+*/

@@ -1,6 +1,55 @@
 #include "Game.h"
 #include <cassert>
 
+Game::Game() : m_window("Chapter 5", sf::Vector2u(800, 600)), m_stateManager(&m_context)
+{
+    m_clock.restart();
+    srand(time(nullptr));
+
+    m_context.m_wind = &m_window;
+    m_context.m_eventManager = m_window.GetEventManager();
+
+    m_stateManager.SwitchTo(StateType::Intro);
+}
+
+Game::~Game()
+{
+}
+
+sf::Time Game::GetElapsed()
+{
+    return m_clock.getElapsedTime();
+}
+void Game::RestartClock()
+{
+    m_elapsed = m_clock.restart();
+}
+Window* Game::GetWindow()
+{
+    return &m_window;
+}
+
+void Game::Update()
+{
+    m_window.Update();
+    m_stateManager.Update(m_elapsed);
+}
+
+void Game::Render()
+{
+    m_window.BeginDraw();
+    // Render here.
+    m_stateManager.Draw();
+    m_window.EndDraw();
+}
+
+void Game::LateUpdate()
+{
+    m_stateManager.ProcessRequests();
+    RestartClock();
+}
+
+/*
 namespace ApplesGame
 {
 void startPlayingState(Game& game)
@@ -25,6 +74,8 @@ void startPlayingState(Game& game)
     initMuteText(game.ui, true);
     initScoreText(game.ui, game);
     initHelpDeskText(game.ui, false);
+    game.musicBack.play();
+    game.musicBack.setVolume(50);
 }
 
 void updatePlayingState(Game& game, float deltaTime)
@@ -105,14 +156,17 @@ void initGame(Game& game)
 {
     // Load resources
     assert(game.font.loadFromFile(RESOURCES_PATH + "/Fonts" + "/Roboto-Regular.ttf"));
-    assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "/Player.png"));
-    assert(game.rockTexture.loadFromFile(RESOURCES_PATH + "/Rock.png"));
-    assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "/Apple.png"));
-    assert(game.soundBufferApple.loadFromFile(RESOURCES_PATH + "/AppleEat.wav"));
-    assert(game.soundBufferDeath.loadFromFile(RESOURCES_PATH + "/Death.wav"));
+    assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "Action/Player.png"));
+    assert(game.rockTexture.loadFromFile(RESOURCES_PATH + "Action/Rock.png"));
+    assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "Action/Apple.png"));
+    assert(game.soundBufferApple.loadFromFile(RESOURCES_PATH + "Action/AppleEat.wav"));
+    assert(game.soundBufferDeath.loadFromFile(RESOURCES_PATH + "Action/Death.wav"));
+    assert(game.musicBack.openFromFile(RESOURCES_PATH + "Action/back1.wav"));
+
     // Init Sounds
     game.soundApple.setBuffer(game.soundBufferApple);
     game.soundDeath.setBuffer(game.soundBufferDeath);
+    game.musicBack.setLoop(true);
     // Init background
     game.background.setSize(sf::Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT));
     game.background.setFillColor(sf::Color::Black);
@@ -192,6 +246,7 @@ void setSoundEnable(bool enable, Game& game)
 {
     if (enable == true)
     {
+        game.musicBack.setVolume(50);
         game.soundDeath.setVolume(100);
         game.soundApple.setVolume(100);
         initMuteText(game.ui, true);
@@ -199,6 +254,7 @@ void setSoundEnable(bool enable, Game& game)
     }
     else if (enable == false)
     {
+        game.musicBack.setVolume(0); // можно сделать не выключение звука а  паузу - старт. не знаю как лучше.
         game.soundDeath.setVolume(0);
         game.soundApple.setVolume(0);
         initMuteText(game.ui, false);
@@ -207,3 +263,4 @@ void setSoundEnable(bool enable, Game& game)
 }
 
 } // namespace ApplesGame
+ */
