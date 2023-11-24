@@ -3,15 +3,15 @@
 // gcc -c -std=c++20 -fmodules-ts  *.cpp
 // g++ *.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include "Constants.h"
+// #include <SFML/Graphics.hpp>
+// #include <SFML/Audio.hpp>
+// #include "Constants.h"
 #include "Game.h"
-#include <string>
-#include "MainMenu.h"
+// #include <string>
+// #include "MainMenu.h"
 
-int main()
-// void main(int argc, void** argv[])
+// int main()
+void main(int argc, void** argv[])
 {
     // Program entry point.
     Game game;
@@ -21,7 +21,7 @@ int main()
         game.Render();
         game.LateUpdate();
     }
-	return 0;
+    // return 0;
 }
 
 /*
