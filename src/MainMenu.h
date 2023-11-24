@@ -2,6 +2,8 @@
 // Created by petroew on 23.11.23.
 //
 
+/*
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio/Sound.hpp>
 #include <SFML/Audio/SoundBuffer.hpp>
@@ -153,3 +155,4 @@ void menu(mainMenu& main_menu, sf::RenderWindow& window)
     }
 }
 #endif // APPLEGAME_MAINMENU_H
+*/

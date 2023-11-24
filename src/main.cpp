@@ -10,7 +10,8 @@
 #include <string>
 #include "MainMenu.h"
 
-void main(int argc, void** argv[])
+void main()
+// void main(int argc, void** argv[])
 {
     // Program entry point.
     Game game;

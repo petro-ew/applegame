@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Game.h"
 
+/*
 namespace ApplesGame
 {
 void initPlayer(Player& player, const struct Game& game)
@@ -83,3 +84,4 @@ void updatePlayer(Player& player, float deltaTime)
     }
 }
 } // namespace ApplesGame
+ */

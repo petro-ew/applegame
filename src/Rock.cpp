@@ -1,3 +1,5 @@
+
+/*
 #include "Rock.h"
 #include "Game.h"
 
@@ -28,3 +30,4 @@ void drawRock(Rock& rock, sf::RenderWindow& window)
 }
 
 } // namespace ApplesGame
+ */

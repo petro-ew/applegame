@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Math.h"
 
+/*
 namespace ApplesGame
 {
 void initApple(Apple& apple, const struct Game& game)
@@ -36,3 +37,4 @@ void setApplePosition(Apple& apple, const Position2D& position)
     apple.position = position;
 }
 } // namespace ApplesGame
+ */
