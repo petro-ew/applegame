@@ -10,7 +10,7 @@
 #include <string>
 #include "MainMenu.h"
 
-void main()
+int main()
 // void main(int argc, void** argv[])
 {
     // Program entry point.
@@ -21,6 +21,7 @@ void main()
         game.Render();
         game.LateUpdate();
     }
+	return 0;
 }
 
 /*

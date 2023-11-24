@@ -30,6 +30,5 @@ private:
     sf::Text m_text;
     sf::RectangleShape m_rect;
 };
-~
 
 #endif // APPLEGAME_STATE_PAUSED_H
