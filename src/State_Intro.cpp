@@ -22,8 +22,8 @@ void State_Intro::OnCreate()
     m_introTexture.loadFromFile("Resources/Logo/intro.png");
     m_introSprite.setTexture(m_introTexture);
     m_introSprite.setOrigin(m_introTexture.getSize().x / 2.0f, m_introTexture.getSize().y / 2.0f);
-
-    m_introSprite.setPosition(windowSize.x / 2.0f, 0);
+    m_introSprite.setScale(1.7, 1.7f);
+    m_introSprite.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f - m_introTexture.getSize().y / 2.3f);
 
     m_font.loadFromFile("Resources/Fonts/arial.ttf");
     m_text.setFont(m_font);
@@ -45,11 +45,11 @@ void State_Intro::OnDestroy()
 
 void State_Intro::Update(const sf::Time& l_time)
 {
-    if (m_timePassed < 5.0f)
+    if (m_timePassed < 2.5f)
     { // Less than five seconds.
         m_timePassed += l_time.asSeconds();
         m_introSprite.setPosition(m_introSprite.getPosition().x,
-                                  m_introSprite.getPosition().y + (48 * l_time.asSeconds()));
+                                  m_introSprite.getPosition().y + (96 * l_time.asSeconds()));
     }
 }
 
@@ -58,7 +58,7 @@ void State_Intro::Draw()
     sf::RenderWindow* window = m_stateMgr->GetContext()->m_wind->GetRenderWindow();
 
     window->draw(m_introSprite);
-    if (m_timePassed >= 5.0f)
+    if (m_timePassed >= 2.5f)
     {
         window->draw(m_text);
     }
@@ -66,7 +66,7 @@ void State_Intro::Draw()
 
 void State_Intro::Continue(EventDetails* l_details)
 {
-    if (m_timePassed >= 5.0f)
+    if (m_timePassed >= 2.5f)
     {
         m_stateMgr->SwitchTo(StateType::MainMenu);
         m_stateMgr->Remove(StateType::Intro);

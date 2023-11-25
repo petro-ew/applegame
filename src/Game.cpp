@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <cassert>
 
-Game::Game() : m_window("Chapter 5", sf::Vector2u(800, 600)), m_stateManager(&m_context)
+Game::Game() : m_window("Monti Games", sf::Vector2u(1024, 768)), m_stateManager(&m_context)
 {
     m_clock.restart();
     srand(time(nullptr));

@@ -7,6 +7,9 @@
 
 #include "BaseState.h"
 #include "EventManager.h"
+#include <SFML/Audio/Sound.hpp>
+#include <SFML/Audio/SoundBuffer.hpp>
+#include <SFML/Audio/Music.hpp>
 
 class State_MainMenu : public BaseState
 {
@@ -31,10 +34,19 @@ private:
 
     sf::Vector2f m_buttonSize;
     sf::Vector2f m_buttonPos;
+    sf::Vector2f m_checkboxSize;
+    sf::Vector2f m_checkboxPos;
     unsigned int m_buttonPadding;
+    unsigned int m_checkboxPadding;
 
     sf::RectangleShape m_rects[3];
     sf::Text m_labels[3];
+    sf::RectangleShape m_rect_checkbox[4];
+    sf::Text m_labels_checkbox[4];
+    sf::Texture m_texture_on_checkbox;
+    sf::Sprite m_sprite_on_checkbox;
+
+    sf::Music musicMenuBack;
 };
 
 #endif // APPLEGAME_STATE_MAINMENU_H
