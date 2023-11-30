@@ -27,6 +27,7 @@ public:
     void Draw();
 
     void MouseClick(EventDetails* l_details);
+    void MousePoint(EventDetails* l_details);
 
 private:
     sf::Font m_font;
@@ -45,7 +46,8 @@ private:
     sf::Text m_labels_checkbox[4];
     sf::Texture m_texture_on_checkbox;
     sf::Sprite m_sprite_on_checkbox;
-
+    sf::Texture m_logo_texture;
+    sf::Sprite m_logo_sprite;
     sf::Music musicMenuBack;
 };
 

@@ -29,6 +29,7 @@ enum class EventType
     MouseLeft = sf::Event::MouseLeft,
     Closed = sf::Event::Closed,
     TextEntered = sf::Event::TextEntered,
+    MouseMove = sf::Event::MouseMoved,
     Keyboard = sf::Event::Count + 1,
     Mouse,
     Joystick
