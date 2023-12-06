@@ -105,11 +105,11 @@ void initGame(Game& game)
 {
     // Load resources
     assert(game.font.loadFromFile(RESOURCES_PATH + "/Fonts" + "/Roboto-Regular.ttf"));
-    assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "/Player.png"));
-    assert(game.rockTexture.loadFromFile(RESOURCES_PATH + "/Rock.png"));
-    assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "/Apple.png"));
-    assert(game.soundBufferApple.loadFromFile(RESOURCES_PATH + "/AppleEat.wav"));
-    assert(game.soundBufferDeath.loadFromFile(RESOURCES_PATH + "/Death.wav"));
+    assert(game.playerTexture.loadFromFile(RESOURCES_PATH + "Action/Player.png"));
+    assert(game.rockTexture.loadFromFile(RESOURCES_PATH + "Action/Rock.png"));
+    assert(game.appleTexture.loadFromFile(RESOURCES_PATH + "Action/Apple.png"));
+    assert(game.soundBufferApple.loadFromFile(RESOURCES_PATH + "Action/AppleEat.wav"));
+    assert(game.soundBufferDeath.loadFromFile(RESOURCES_PATH + "Action/Death.wav"));
     // Init Sounds
     game.soundApple.setBuffer(game.soundBufferApple);
     game.soundDeath.setBuffer(game.soundBufferDeath);

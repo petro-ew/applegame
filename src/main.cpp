@@ -8,6 +8,7 @@
 #include "Constants.h"
 #include "Game.h"
 #include <string>
+#include "MainMenu.h"
 
 int main()
 {
@@ -17,6 +18,10 @@ int main()
     // Init window
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Apples game!");
     // Game initialization
+    mainMenu mainmenu;
+    // menuInit(mainmenu, window);
+    menu(mainmenu, window);
+
     Game game;
     initGame(game);
     // Init game clocks

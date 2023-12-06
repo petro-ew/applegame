@@ -44,6 +44,8 @@ add_executable(applegame src/main.cpp
         src/Rock.cpp
         src/UI.h
         src/UI.cpp
+        src/MainMenu.h
+        src/CheckBox.h
 )
 
 find_package(SFML 2.6 COMPONENTS graphics audio network REQUIRED)
